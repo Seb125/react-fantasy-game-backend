@@ -25,7 +25,7 @@ router.post("/signup", (req, res, next) => {
     res.status(400).json({ message: "Provide email, password and name" });
     return;
   }
-
+  console.log(email)
   // This regular expression check that the email is of a valid format
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   if (!emailRegex.test(email)) {
@@ -47,7 +47,9 @@ router.post("/signup", (req, res, next) => {
   User.findOne({ email })
     .then((foundUser) => {
       // If the user with the same email already exists, send an error response
+      console.log(foundUser)
       if (foundUser) {
+        console.log("heeeelo")
         res.status(400).json({ message: "User already exists." });
         return;
       }
