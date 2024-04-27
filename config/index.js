@@ -28,19 +28,6 @@ module.exports = (app) => {
     })
   );
 
-  // Middleware to set CORS headers
-  app.use((req, res, next) => {
-    // Set CORS headers
-    res.header("Access-Control-Allow-Origin", FRONTEND_URL);
-    res.header(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PUT, PATCH, DELETE, OPTIONS"
-    );
-    res.header("Access-Control-Allow-Headers", "Origin, Content-Type");
-
-    // Continue to the next middleware or route handler
-    next();
-  });
 
   // In development environment the app logs
   app.use(logger("dev"));
